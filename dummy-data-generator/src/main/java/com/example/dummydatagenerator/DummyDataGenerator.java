@@ -38,6 +38,7 @@ public class DummyDataGenerator implements ApplicationRunner {
                     .collect(Collectors.toList());
 
             crewDao.batchInsert(crews);
+            System.out.println("Crew 데이터 생성" + (i+1) * CREW_COUNT + "완료");
         }
 
         for (int i = 0; i < REPEAT_COUNT; i++) {
@@ -46,6 +47,7 @@ public class DummyDataGenerator implements ApplicationRunner {
                     .collect(Collectors.toList());
 
             studyLogDao.batchInsert(studyLogs);
+            System.out.println("Study_log 데이터 생성" + (i+1) * STUDY_LOG_COUNT + "완료");
         }
 
         LocalDateTime after = LocalDateTime.now();
