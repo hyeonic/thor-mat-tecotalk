@@ -15,7 +15,7 @@ public class StudyLog {
     private String updatedAt;
 
     public StudyLog() {
-        this.crewId = RANDOM.nextLong(10_000_000) + 1; // 1 ~ 10_000_000
+        this.crewId = 1 + RANDOM.nextLong(100_000); // 1 ~ 100_000
         String uuid = UUID.randomUUID().toString();
         this.title = uuid.substring(0, 8);
         this.content = uuid;

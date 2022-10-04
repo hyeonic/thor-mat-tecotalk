@@ -16,7 +16,7 @@ public class Crew {
         this.nickname = uuid.substring(0, 8);
         int index = 1 + RANDOM.nextInt(2); // 1 ~ 2
         this.track = Track.from(index).getValue();
-        this.year = 1 + RANDOM.nextInt(4); // 1 ~ 4
+        this.year = 1 + RANDOM.nextInt(100); // 1 ~ 100
     }
 
     public String getNickname() {
