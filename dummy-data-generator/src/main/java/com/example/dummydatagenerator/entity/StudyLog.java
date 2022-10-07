@@ -11,14 +11,18 @@ public class StudyLog {
     private Long crewId;
     private String title;
     private String content;
+    private String type;
     private String createdAt;
     private String updatedAt;
 
-    public StudyLog() {
-        this.crewId = 1 + RANDOM.nextLong(100_000); // 1 ~ 100_000
+    public StudyLog(final int crewIdRange) {
+        this.crewId = 1 + RANDOM.nextLong(crewIdRange);
         String uuid = UUID.randomUUID().toString();
         this.title = uuid.substring(0, 8);
         this.content = uuid;
+
+        int index = 1 + RANDOM.nextInt(2); // 1 ~ 2
+        this.type = StudyLogType.from(index).getValue();
 
         String dateTime = RandomUtil.generateDate();
         this.createdAt = dateTime;
@@ -35,6 +39,10 @@ public class StudyLog {
 
     public String getContent() {
         return content;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getCreatedAt() {
