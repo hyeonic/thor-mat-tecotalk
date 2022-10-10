@@ -26,6 +26,6 @@ public class CrewDao {
                 + "VALUES (:nickname, :track, :year) ";
 
         jdbcTemplate.batchUpdate(sql, SqlParameterSourceUtils.createBatch(crews));
-        template.update("SET foreign_key_checks = 0");
+        template.update("SET foreign_key_checks = 1");
     }
 }

@@ -18,8 +18,8 @@ public class DummyDataGenerator implements ApplicationRunner {
 
     private static final int REPEAT_COUNT = 1;
 
-    private static final int CREW_COUNT = 1_000;
-    private static final int STUDY_LOG_COUNT = 100_000;
+    private static final int CREW_COUNT = 1_000_000;
+    private static final int STUDY_LOG_COUNT = 1_000_000;
 
     private final CrewDao crewDao;
     private final StudyLogDao studyLogDao;
@@ -32,7 +32,7 @@ public class DummyDataGenerator implements ApplicationRunner {
     @Override
     public void run(final ApplicationArguments args) {
         LocalDateTime before = LocalDateTime.now();
-        // 크루 1만명
+        // 크루 100만명
         for (int i = 0; i < REPEAT_COUNT; i++) {
             List<Crew> crews = IntStream.range(0, CREW_COUNT)
                     .mapToObj(ignored -> new Crew())
@@ -41,7 +41,7 @@ public class DummyDataGenerator implements ApplicationRunner {
             crewDao.batchInsert(crews);
         }
 
-        // 스터디 로그 10만개
+        // 스터디 로그 100만개
         for (int i = 0; i < REPEAT_COUNT; i++) {
             List<StudyLog> studyLogs = IntStream.range(0, STUDY_LOG_COUNT)
                     .mapToObj(ignored -> new StudyLog(REPEAT_COUNT * CREW_COUNT))
